@@ -2,7 +2,7 @@
 
 namespace Pmochine\LaravelNovaHashids\Http;
 
-use Illuminate\Http\Request;
+use http\Client\Request;
 use Vinkla\Hashids\Facades\Hashids;
 
 class HashidsConverterController
@@ -19,8 +19,8 @@ class HashidsConverterController
 	 * @param  Request $request 
 	 * @return json           
 	 */
-	public function index() 
-	{
+	public function index(): json
+    {
 		if(empty($this->config)){
 			return response()->json([
 				'status' => 'empty',
@@ -39,8 +39,8 @@ class HashidsConverterController
 	 * @param  Request $request 
 	 * @return json           
 	 */
-	public function convert(Request $request) 
-	{
+	public function convert(Request $request): json
+    {
 		$request->validate([
 			'selected' => 'required'
 		]);
